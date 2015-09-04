@@ -43,16 +43,16 @@ ENV LIBVIPS_VERSION_MINOR 0
 ENV LIBVIPS_VERSION_PATCH 2
 ENV LIBVIPS_VERSION $LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR.$LIBVIPS_VERSION_PATCH
 RUN \
-  curl -O http://www.vips.ecs.soton.ac.uk/supported/$LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR/vips-$LIBVIPS_VERSION.tar.gz && \
-  tar zvxf vips-$LIBVIPS_VERSION.tar.gz && \
-  cd vips-$LIBVIPS_VERSION && \
-  ./configure --disable-debug --disable-static --disable-introspection --without-python --without-orc --without-fftw $1 && \
-  make && \
-  make install && \
-  ldconfig
+	curl -O http://www.vips.ecs.soton.ac.uk/supported/$LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR/vips-$LIBVIPS_VERSION.tar.gz && \
+	tar zvxf vips-$LIBVIPS_VERSION.tar.gz && \
+	cd vips-$LIBVIPS_VERSION && \
+	./configure --disable-debug --disable-static --disable-introspection --without-python --without-orc --without-fftw $1 && \
+	make && \
+	make install && \
+	ldconfig
 
 # Clean up
 WORKDIR /
 RUN apt-get autoclean && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
