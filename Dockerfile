@@ -33,7 +33,7 @@ RUN apt-get install -y \
 	libmagickcore-dev
 
 # Install NodeJS
-ENV IOJS_VERSION 2.x
+ENV IOJS_VERSION 3.x
 RUN curl -sL https://deb.nodesource.com/setup_iojs_$IOJS_VERSION | bash - && apt-get install -y iojs
 
 # Build libvips
